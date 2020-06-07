@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="demo-webshop-tests">
+    <parameter name="account_email" value="jean1995sib@gmail.com"/>
+    <parameter name="account_password" value="01011995"/>
+    <parameter name="wrong_email_domen" value="@gmail.ru"/>
+
+    <test name="Demo-WebShop-UI-Test">
+        <classes>
+            <class name="com.tricentis.demowebshop.test_cases.RegistrationTest">
+                <methods>
+                    <include name="testPositiveMaleRegistration" />
+                    <include name="testPositiveFemaleRegistration" />
+                    <include name="testPositiveNoGenderRegistration" />
+                    <include name="testNoFirstNameRegistration" />
+                    <include name="testRussianFirstNameRegistration" />
+                    <include name="testFirstNameWithNumbersRegistration" />
+                    <include name="testFirstNameWithSpecialCharactersRegistration" />
+                    <include name="testLargeFirstNameRegistration" />
+                    <include name="testNoLastNameRegistration" />
+                    <include name="testRussianLastNameRegistration" />
+                    <include name="testLastNameWithNumbersRegistration" />
+                    <include name="testLastNameWithSpecialCharactersRegistration" />
+                    <include name="testLargeLastNameRegistration" />
+                    <include name="testNoEmailRegistration" />
+                    <include name="testWrongDomenEmailRegistration" />
+                    <include name="testEmailAlreadyExistsRegistration" />
+                    <include name="testRandomStringEmailRegistration" />
+                    <include name="testLargeEmailRegistration" />
+                    <include name="testNoFirstPasswordRegistration" />
+                    <include name="testShortPasswordRegistration" />
+                    <include name="testLargePasswordRegistration" />
+                    <include name="testPasswordNotMatchRegistration" />
+                    <include name="testNoConfirmPasswordRegistration" />
+                </methods>
+            </class>
+
+            <class name="com.tricentis.demowebshop.test_cases.LoginTest">
+                <methods>
+                    <include name="testPositiveNoRememberMeLogin" />
+                    <include name="testPositiveRememberMeLogin" />
+                    <include name="testNonexistentEmailLogin" />
+                    <include name="testEmptyEmailLogin" />
+                    <include name="testIncorrectEmailLogin" />
+                    <include name="testLargeNonexistentEmailLogin" />
+                    <include name="testIncorrectPasswordLogin" />
+                    <include name="testNoPasswordLogin" />
+                    <include name="testLargeIncorrectPasswordLogin" />
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+</suite>
