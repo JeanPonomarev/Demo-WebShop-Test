@@ -13,7 +13,6 @@ import com.tricentis.demowebshop.data_generator.RandomDataGenerator;
 
 import java.util.concurrent.TimeUnit;
 
-@Ignore
 @Epic(value = "Register")
 @Owner(value = "Jean Ponomarev")
 public class RegistrationTest {
