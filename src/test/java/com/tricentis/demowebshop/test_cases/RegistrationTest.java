@@ -24,6 +24,8 @@ public class RegistrationTest {
     RandomDataGenerator dataGenerator = new RandomDataGenerator();
 
     private static final String BASIC_URL = "http://demowebshop.tricentis.com/";
+    private static final String REGISTERED_EMAIL = "jean1995sib@gmail.com";
+    private static final String WRONG_EMAIL_DOMEN = "@gmail.ru";
 
     @BeforeMethod
     void setup() {
@@ -37,10 +39,8 @@ public class RegistrationTest {
         registrationPage = PageFactory.initElements(driver, RegistrationPage.class);
     }
 
-    // TODO: три тест-кейса на регистрацию по положительному сценарию (1-3)
-
     @Feature(value = "Registration by positive scenario")
-    @Story(value = "Registration with correct data, gender male selected")
+    @Description(value = "Registration with correct data, gender male selected")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test
     public void testPositiveMaleRegistration() {
@@ -60,12 +60,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
     @Feature(value = "Registration by positive scenario")
-    @Story(value = "Registration with correct data, gender female selected")
+    @Description(value = "Registration with correct data, gender female selected")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test
     public void testPositiveFemaleRegistration() {
@@ -85,12 +85,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
     @Feature(value = "Registration by positive scenario")
-    @Story(value = "Registration with correct data, no gender selected")
+    @Description(value = "Registration with correct data, no gender selected")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test
     public void testPositiveNoGenderRegistration() {
@@ -109,14 +109,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
-    // TODO: 5 тест-кейсов на проверку поля First Name
-
     @Feature(value = "Attempt to register with wrong first name")
-    @Story(value = "Registration with empty first name input field")
+    @Description(value = "Registration with empty first name input field")
     @Severity(value = SeverityLevel.CRITICAL)
     @Test
     public void testNoFirstNameRegistration() {
@@ -135,7 +133,7 @@ public class RegistrationTest {
     }
 
     @Feature(value = "Registration with not standard first name by positive scenario")
-    @Story(value = "Registration with Russian first name")
+    @Description(value = "Registration with Russian first name")
     @Severity(value = SeverityLevel.NORMAL)
     @Test
     public void testRussianFirstNameRegistration() {
@@ -155,12 +153,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
     @Feature(value = "Registration with not standard first name by positive scenario")
-    @Story(value = "Registration with letters + numbers first name")
+    @Description(value = "Registration with letters + numbers first name")
     @Severity(value = SeverityLevel.NORMAL)
     @Test
     public void testFirstNameWithNumbersRegistration() {
@@ -180,12 +178,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
     @Feature(value = "Registration with not standard first name by positive scenario")
-    @Story(value = "Registration with letters + special characters first name")
+    @Description(value = "Registration with letters + special characters first name")
     @Severity(value = SeverityLevel.NORMAL)
     @Test
     public void testFirstNameWithSpecialCharactersRegistration() {
@@ -205,12 +203,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
     @Feature(value = "Attempt to register with wrong first name")
-    @Story(value = "Registration with large first name (300 characters)")
+    @Description(value = "Registration with large first name (300 characters), this test should throw an exception")
     @Severity(value = SeverityLevel.NORMAL)
     @Test(expectedExceptions = {Exception.class})
     public void testLargeFirstNameRegistration() {
@@ -230,15 +228,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
-
-    // TODO: 5 тест кейсов для поля Last Name
-
     @Feature(value = "Attempt to register with wrong last name")
-    @Story(value = "Registration with empty last name input field")
+    @Description(value = "Registration with empty last name input field")
     @Severity(value = SeverityLevel.CRITICAL)
     @Test
     public void testNoLastNameRegistration() {
@@ -257,7 +252,7 @@ public class RegistrationTest {
     }
 
     @Feature(value = "Registration with not standard last name by positive scenario")
-    @Story(value = "Registration with Russian last name")
+    @Description(value = "Registration with Russian last name")
     @Severity(value = SeverityLevel.NORMAL)
     @Test
     public void testRussianLastNameRegistration() {
@@ -277,12 +272,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
     @Feature(value = "Registration with not standard last name by positive scenario")
-    @Story(value = "Registration with letters + numbers last name")
+    @Description(value = "Registration with letters + numbers last name")
     @Severity(value = SeverityLevel.NORMAL)
     @Test
     public void testLastNameWithNumbersRegistration() {
@@ -302,12 +297,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
     @Feature(value = "Registration with not standard first last by positive scenario")
-    @Story(value = "Registration with letters + special characters last name")
+    @Description(value = "Registration with letters + special characters last name")
     @Severity(value = SeverityLevel.NORMAL)
     @Test
     public void testLastNameWithSpecialCharactersRegistration() {
@@ -327,12 +322,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
     @Feature(value = "Attempt to register with wrong last name")
-    @Story(value = "Registration with large last name (300 characters)")
+    @Description(value = "Registration with large last name (300 characters), this test should throw an exception")
     @Severity(value = SeverityLevel.NORMAL)
     @Test(expectedExceptions = {Exception.class})
     public void testLargeLastNameRegistration() {
@@ -352,15 +347,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
-    // TODO: 5 тестов для поля Email
-
-
     @Feature(value = "Attempt to register with wrong email")
-    @Story(value = "Registration with empty email input field")
+    @Description(value = "Registration with empty email input field")
     @Severity(value = SeverityLevel.CRITICAL)
     @Test
     public void testNoEmailRegistration() {
@@ -377,13 +369,12 @@ public class RegistrationTest {
         RegistrationTestSteps.checkEmailErrorLabel(registrationPage.getEmailErrorLabel(), RegistrationLabels.EMAIL_REQUIRED_ERROR_LABEL.toString());
     }
 
-    // TODO: возможно следует вынести @gmail.ru в параметр
     @Feature(value = "Attempt to register with wrong email")
-    @Story(value = "Registration with email that has wrong domen name (example: @gmail.ru)")
+    @Description(value = "Registration with email that has wrong domen name (example: @gmail.ru)")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test(expectedExceptions = {Exception.class})
     public void testWrongDomenEmailRegistration() {
-        String currentEmail = dataGenerator.getNormalRandomString() + "@gmail.ru";
+        String currentEmail = dataGenerator.getNormalRandomString() + WRONG_EMAIL_DOMEN;
         String currentPassword = dataGenerator.getValidPassword();
 
         registrationPage.registerNewUser(
@@ -399,24 +390,22 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
-    // TODO: возможно следует вынести jean1995sib@gmail.com в параметр
     @Feature(value = "Attempt to register with wrong email")
-    @Story(value = "Registration with email that already exists")
+    @Description(value = "Registration with email that already exists")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test
     public void testEmailAlreadyExistsRegistration() {
-        String currentEmail = "jean1995sib@gmail.com";
         String currentPassword = dataGenerator.getValidPassword();
 
         registrationPage.registerNewUser(
                 true,
                 dataGenerator.getValidFirstName(),
                 dataGenerator.getValidLastName(),
-                currentEmail,
+                REGISTERED_EMAIL,
                 currentPassword,
                 currentPassword
         );
@@ -425,7 +414,7 @@ public class RegistrationTest {
     }
 
     @Feature(value = "Attempt to register with wrong email")
-    @Story(value = "Registration with random string in email input field")
+    @Description(value = "Registration with random string in email input field")
     @Severity(value = SeverityLevel.CRITICAL)
     @Test
     public void testRandomStringEmailRegistration() {
@@ -445,7 +434,7 @@ public class RegistrationTest {
 
     // сайт иногда падает при ручном проходе этого теста
     @Feature(value = "Attempt to register with wrong email")
-    @Story(value = "Registration with large emil (300 characters)")
+    @Description(value = "Registration with large emil (300 characters), this test should throw an exception")
     @Severity(value = SeverityLevel.CRITICAL)
     @Test(expectedExceptions = {Exception.class})
     public void testLargeEmailRegistration() {
@@ -465,14 +454,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
-    // TODO: 3 тест кейса на первый пароль
-
     @Feature(value = "Attempt to register with wrong password")
-    @Story(value = "Registration with empty (first) password input field")
+    @Description(value = "Registration with empty (first) password input field")
     @Severity(value = SeverityLevel.CRITICAL)
     @Test
     public void testNoFirstPasswordRegistration() {
@@ -489,7 +476,7 @@ public class RegistrationTest {
     }
 
     @Feature(value = "Attempt to register with wrong password")
-    @Story(value = "Registration with short password (less than 6 characters)")
+    @Description(value = "Registration with short password (less than 6 characters)")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test
     public void testShortPasswordRegistration() {
@@ -508,7 +495,7 @@ public class RegistrationTest {
     }
 
     @Feature(value = "Attempt to register with wrong password")
-    @Story(value = "Registration with large password (300 characters)")
+    @Description(value = "Registration with large password (300 characters), this test should throw an exception")
     @Severity(value = SeverityLevel.NORMAL)
     @Test(expectedExceptions = {Exception.class})
     public void testLargePasswordRegistration() {
@@ -528,14 +515,12 @@ public class RegistrationTest {
 
         registrationPage.clickContinueButton();
 
-        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(),BASIC_URL);
+        RegistrationTestSteps.checkCurrentURLStep(driver.getCurrentUrl(), BASIC_URL);
         RegistrationTestSteps.checkEmailLabelStep(startPage.getEmailLabel(), currentEmail);
     }
 
-    // TODO: 2 тест-кейсв на второй пароль
-
     @Feature(value = "Attempt to register with wrong password")
-    @Story(value = "Registration with confirm password that doesn't match first password")
+    @Description(value = "Registration with confirm password that doesn't match first password")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test
     public void testPasswordNotMatchRegistration() {
@@ -552,7 +537,7 @@ public class RegistrationTest {
     }
 
     @Feature(value = "Attempt to register with wrong password")
-    @Story(value = "Registration with empty confirm password input field")
+    @Description(value = "Registration with empty confirm password input field")
     @Severity(value = SeverityLevel.NORMAL)
     @Test
     public void testNoConfirmPasswordRegistration() {

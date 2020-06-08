@@ -25,7 +25,7 @@ public class RandomDataGenerator {
     }
 
     public String getShortPassword() {
-        return faker.internet().password(1,5);
+        return faker.internet().password(1, 5);
     }
 
     public String getNormalRandomString() {

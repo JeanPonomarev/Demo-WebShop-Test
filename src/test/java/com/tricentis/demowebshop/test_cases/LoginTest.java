@@ -24,7 +24,6 @@ public class LoginTest {
     RandomDataGenerator dataGenerator = new RandomDataGenerator();
 
     private static final String BASIC_URL = "http://demowebshop.tricentis.com/";
-
     private static final String VALID_EMAIL = "jean1995sib@gmail.com";
     private static final String VALID_PASSWORD = "01011995";
 
@@ -41,7 +40,7 @@ public class LoginTest {
     }
 
     @Feature(value = "Login by positive scenario")
-    @Story(value = "Login with correct data, Remember Me checkbox is chosen")
+    @Description(value = "Login with correct data, Remember Me checkbox is chosen")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test
     public void testPositiveNoRememberMeLogin() {
@@ -52,7 +51,7 @@ public class LoginTest {
     }
 
     @Feature(value = "Login by positive scenario")
-    @Story(value = "Login with correct data, Remember Me checkbox is not chosen")
+    @Description(value = "Login with correct data, Remember Me checkbox is not chosen")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test
     public void testPositiveRememberMeLogin() {
@@ -63,7 +62,7 @@ public class LoginTest {
     }
 
     @Feature(value = "Attempt to log in with wrong email")
-    @Story(value = "Login with unregistered email")
+    @Description(value = "Login with unregistered email")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test
     public void testNonexistentEmailLogin() {
@@ -74,7 +73,7 @@ public class LoginTest {
     }
 
     @Feature(value = "Attempt to log in with wrong email")
-    @Story(value = "Login with empty email input field")
+    @Description(value = "Login with empty email input field")
     @Severity(value = SeverityLevel.CRITICAL)
     @Test
     public void testEmptyEmailLogin() {
@@ -85,7 +84,7 @@ public class LoginTest {
     }
 
     @Feature(value = "Attempt to log in with wrong email")
-    @Story(value = "Login with invalid email")
+    @Description(value = "Login with invalid email")
     @Severity(value = SeverityLevel.CRITICAL)
     @Test
     public void testIncorrectEmailLogin() {
@@ -95,7 +94,7 @@ public class LoginTest {
     }
 
     @Feature(value = "Attempt to log in with wrong email")
-    @Story(value = "Login with large (300 characters) unregistered email")
+    @Description(value = "Login with large (300 characters) unregistered email, this test should throw an exception")
     @Severity(value = SeverityLevel.NORMAL)
     @Test
     public void testLargeNonexistentEmailLogin() {
@@ -106,7 +105,7 @@ public class LoginTest {
     }
 
     @Feature(value = "Attempt to log in with incorrect password")
-    @Story(value = "Login with wrong password for input registered email")
+    @Description(value = "Login with wrong password for input registered email")
     @Severity(value = SeverityLevel.BLOCKER)
     @Test
     public void testIncorrectPasswordLogin() {
@@ -117,7 +116,7 @@ public class LoginTest {
     }
 
     @Feature(value = "Attempt to log in with incorrect password")
-    @Story(value = "Login with empty password field")
+    @Description(value = "Login with empty password field")
     @Severity(value = SeverityLevel.CRITICAL)
     @Test
     public void testNoPasswordLogin() {
@@ -128,7 +127,7 @@ public class LoginTest {
     }
 
     @Feature(value = "Attempt to log in with incorrect password")
-    @Story(value = "Login with large (300 characters) incorrect password")
+    @Description(value = "Login with large (300 characters) incorrect password, this test should throw an exception")
     @Severity(value = SeverityLevel.NORMAL)
     @Test
     public void testLargeIncorrectPasswordLogin() {
